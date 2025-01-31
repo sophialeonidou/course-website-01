@@ -4,7 +4,7 @@ project:
   execute-dir: project
   
 website:
-  title: "Website Template"
+  title: "Course Website 01"
   navbar:
     left:
       - href: index.qmd
