@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "InformationAbouttheProduct.html",
+    "href": "InformationAbouttheProduct.html",
+    "title": "Information About the Product",
+    "section": "",
+    "text": "Join. Share. Connect.\nSign up to access live, anonymous group calls. Share your challenges and engage with others who understand. Build your emotional support network, all from the comfort of your home.\n*Design Element: (Placeholder for infographic on how the platform works: sign-up &gt; join group calls &gt; connect)\nHow EndingLoneliness Works"
+  },
+  {
     "objectID": "tab-presentation/presentation-index.html",
     "href": "tab-presentation/presentation-index.html",
     "title": "Examples of presentations",
@@ -9,37 +16,16 @@
   {
     "objectID": "tab-one/tab-one-index.html",
     "href": "tab-one/tab-one-index.html",
-    "title": "Add a title to your Tab index page",
+    "title": "About",
     "section": "",
-    "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-  },
-  {
-    "objectID": "tab-one/tab-one-index.html#nemo-enim-ipsam",
-    "href": "tab-one/tab-one-index.html#nemo-enim-ipsam",
-    "title": "Add a title to your Tab index page",
-    "section": "",
-    "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-  },
-  {
-    "objectID": "tab-one/tab-one-index.html#add-an-image",
-    "href": "tab-one/tab-one-index.html#add-an-image",
-    "title": "Add a title to your Tab index page",
-    "section": "Add an image",
-    "text": "Add an image\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+    "text": "EndingLoneliness is an innovative online service platform designed to combat loneliness and foster meaningful connections by providing a safe space for individuals to share their everyday or personal challenges through group calls.\nTargeting adults with demanding lifestyles, the platform offers a convenient and accessible solution for those who struggle to engage in traditional social interactions. Unlike therapy or mental health services, EndingLoneliness focuses on mutual understanding, listening, and support, without offering clinical or psychological advice."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome",
+    "title": "EndingLoneliness",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-  },
-  {
-    "objectID": "index.html#nemo-enim-ipsam",
-    "href": "index.html#nemo-enim-ipsam",
-    "title": "Welcome",
-    "section": "Nemo enim ipsam",
-    "text": "Nemo enim ipsam\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+    "text": "Feel heard, find connection, and combat loneliness—on your terms.\nEndingLoneliness is an online platform offering group calls designed to foster connection and understanding. Anonymously share your thoughts and challenges in a safe space, and discover the power of mutual support. Join us and take the first step toward meaningful connections today.\n“Join the Conversation, End the Loneliness”\n“Where Connections Begin, Loneliness Ends”\n“Because No One Should Feel Alone”\n** appropriate for people seeking non-therapeutic connection. It distinguishes itself from mental health services by focusing on alleviating loneliness rather than addressing clinical issues."
   },
   {
     "objectID": "tab-presentation/presentation1/presentation-example.html#what-this-course-is-about",
@@ -110,5 +96,12 @@
     "title": "Course overview",
     "section": "Summary",
     "text": "Summary\n\nDashboards are powerful tools for decision-making.\nEffective dashboards balance clarity, relevance, and visual appeal.\nAvoid common pitfalls by focusing on user needs and testing designs."
+  },
+  {
+    "objectID": "About.html",
+    "href": "About.html",
+    "title": "AboutX",
+    "section": "",
+    "text": "EndingLoneliness is an innovative online service platform designed to combat loneliness and foster meaningful connections by providing a safe space for individuals to share their everyday or personal challenges through group calls.\nTargeting adults with demanding lifestyles, the platform offers a convenient and accessible solution for those who struggle to engage in traditional social interactions. Unlike therapy or mental health services, EndingLoneliness focuses on mutual understanding, listening, and support, without offering clinical or psychological advice."
   }
 ]

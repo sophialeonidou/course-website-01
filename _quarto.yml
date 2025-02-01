@@ -4,24 +4,22 @@ project:
   execute-dir: project
   
 website:
-  title: "Course Website 01"
+  title: "EndingLoneliness"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: tab-one/tab-one-index.qmd
-        text: Tab title
-      - href: tab-presentation/presentation-index.qmd
-        text: Presentations        
-      - href: tab-iframe/iframe-index.qmd
-        text: iFrame example
-    logo: images/logo_tepak.png
-
+      - href: About.qmd
+        text: AboutX
+      - href: InformationAbouttheProduct.qmd
+        text: Information About the Product
+        
+        
+    logo: images/Ending_Loneliness_Logo.png
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
     css: styles.css
     toc: true
+
 

@@ -1,12 +1,10 @@
 ---
-title: "Add a title to your Tab index page"
+title: "About"
 ---
 
-## Nemo enim ipsam
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+EndingLoneliness is an innovative online service platform designed to combat loneliness and foster meaningful connections by providing a safe space for individuals to share their everyday or personal challenges through group calls. 
 
-## Add an image
+Targeting adults with demanding lifestyles, the platform offers a convenient and accessible solution for those who struggle to engage in traditional social interactions. Unlike therapy or mental health services, EndingLoneliness focuses on mutual understanding, listening, and support, without offering clinical or psychological advice. 
 
-![](/images/workflow.png)
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+

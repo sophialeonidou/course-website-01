@@ -1,12 +1,22 @@
 ---
-title: "Welcome"
+title: "EndingLoneliness"
 ---
 
-This is a Quarto website.
+![](images/Ending_Loneliness_Logo.png){.center width="50%" height="50%"  style="border-radius: 10px;"}
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+Feel heard, find connection, and combat loneliness—on your terms.
 
-## Nemo enim ipsam
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+EndingLoneliness is an online platform offering group calls designed to foster connection and understanding. Anonymously share your thoughts and challenges in a safe space, and discover the power of mutual support. Join us and take the first step toward meaningful connections today.
+
+
+“Join the Conversation, End the Loneliness”
+
+
+“Where Connections Begin, Loneliness Ends”
+
+
+“Because No One Should Feel Alone”
+
+
+** appropriate for people seeking non-therapeutic connection. It distinguishes itself from mental health services by focusing on alleviating loneliness rather than addressing clinical issues.

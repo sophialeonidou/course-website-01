@@ -25,5 +25,11 @@
   },
   "tab-iframe/iframe-index.qmd": {
     "iframe-index.html": "bf78c40e"
+  },
+  "About.qmd": {
+    "About.html": "bf2226c1"
+  },
+  "InformationAbouttheProduct.qmd": {
+    "InformationAbouttheProduct.html": "eb449e66"
   }
 }
