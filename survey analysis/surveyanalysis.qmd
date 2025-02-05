@@ -1,5 +1,5 @@
 ---
-title: "Survey Data Analysis"
+title: "Survey Analysis"
 ---
 
 ```{r setup, include=FALSE}
@@ -17,13 +17,14 @@ library(lubridate)
 library(forcats)
 library(knitr)
 library(kableExtra)
-library(tidyverse)
-library(psych)
 
 ```
 
 
 ```{r datatables}
+# Create data tables
+
+# Create Codebook
 codebook <- tibble(
   variable_name = c(
     "gender", "age", "annual_income", "employment_status", 
@@ -104,48 +105,115 @@ data |>
   kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
 ```
 
-# Statistic Analysis
+#  Statistics
 
 
-##AgeLoneliness
+## Factors to Numeric
+```{r data-edit}
+data <- data %>%
+  mutate(
+    loneliness_frequency = as.numeric(factor(loneliness_frequency, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
+    employment_status = factor(employment_status),
+    relationship_status = factor(relationship_status),
+    group_calls = factor(group_calls, levels = c("No", "Yes"), ordered = TRUE),
+    sharing_comfort = as.numeric(factor(sharing_comfort, levels = c("Very uncomfortable", "Uncomfortable", "Neutral", "Comfortable", "Very comfortable"), ordered = TRUE)),
+    real_name_usage = as.numeric(factor(real_name_usage, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
+    friend_count = as.numeric(factor(friend_count, levels = c("None", "1-3", "4-6", "6-8", "8 and more"), ordered = TRUE)),
+    daily_meaningful_contacts = as.numeric(factor(daily_meaningful_contacts, levels = c("None", "1-5", "6-10", "11-20", "20 and more"), ordered = TRUE))
+  )
+```
+
+
+## Age Distribution
 
 ```{r age-plot}
-data <- data %>%
-  mutate(
-    loneliness_frequency = as.numeric(factor(loneliness_frequency, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
-    employment_status = factor(employment_status),
-    relationship_status = factor(relationship_status),
-    group_calls = factor(group_calls, levels = c("No", "Yes"), ordered = TRUE),
-    sharing_comfort = as.numeric(factor(sharing_comfort, levels = c("Very uncomfortable", "Uncomfortable", "Neutral", "Comfortable", "Very comfortable"), ordered = TRUE)),
-    real_name_usage = as.numeric(factor(real_name_usage, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
-    friend_count = as.numeric(factor(friend_count, levels = c("None", "1-3", "4-6", "6-8", "8 and more"), ordered = TRUE)),
-    daily_meaningful_contacts = as.numeric(factor(daily_meaningful_contacts, levels = c("None", "1-5", "6-10", "11-20", "20 and more"), ordered = TRUE))
-  )
-
-cor.test(data$age, data$loneliness_frequency, method = "spearman")
-
-ggplot(data, aes(x = age, y = loneliness_frequency)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", color = "blue") +
-  labs(title = "Age vs. Loneliness Frequency", x = "Age", y = "Loneliness Frequency")
+# Age distribution
+data %>%
+  mutate(age_group = cut(age, breaks = seq(18, 95, by = 10), include.lowest = TRUE)) %>%
+  group_by(age_group) %>%
+  summarize(mean_loneliness = mean(loneliness_frequency, na.rm = TRUE)) %>%
+  ggplot(aes(x = age_group, y = mean_loneliness, fill = age_group)) +
+  geom_bar(stat = "identity", alpha = 0.8) +
+  labs(
+    title = "Mean Loneliness Frequency by Age Group",
+    x = "Age Group",
+    y = "Mean Loneliness Frequency",
+    fill = "Age Group"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
- 
-## Employment
 
+## Employment 
 ```{r employment-plot}
-data <- data %>%
-  mutate(
-    loneliness_frequency = as.numeric(factor(loneliness_frequency, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
-    employment_status = factor(employment_status),
-    relationship_status = factor(relationship_status),
-    group_calls = factor(group_calls, levels = c("No", "Yes"), ordered = TRUE),
-    sharing_comfort = as.numeric(factor(sharing_comfort, levels = c("Very uncomfortable", "Uncomfortable", "Neutral", "Comfortable", "Very comfortable"), ordered = TRUE)),
-    real_name_usage = as.numeric(factor(real_name_usage, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
-    friend_count = as.numeric(factor(friend_count, levels = c("None", "1-3", "4-6", "6-8", "8 and more"), ordered = TRUE)),
-    daily_meaningful_contacts = as.numeric(factor(daily_meaningful_contacts, levels = c("None", "1-5", "6-10", "11-20", "20 and more"), ordered = TRUE))
-  )
-
-ggplot(data, aes(x = employment_status, y = loneliness_frequency)) +
+ggplot(data, aes(x = employment_status, y = loneliness_frequency, fill = employment_status)) +
   geom_boxplot() +
-  labs(title = "Employment Status vs. Loneliness Frequency", x = "Employment Status", y = "Loneliness Frequency")
+  labs(title = "Employment Status vs. Loneliness Frequency", x = "Employment Status", y = "Loneliness Frequency") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
+## Relationship
+```{r relationship-plot}
+ggplot(data, aes(x = relationship_status, y = loneliness_frequency, fill = relationship_status)) +
+  geom_boxplot() +
+  labs(title = "Relationship Status vs. Loneliness Frequency", x = "Relationship Status", y = "Loneliness Frequency") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+##Groupcalls
+```{r groupcalls-plot}
+ggplot(data, aes(x = group_calls, y = sharing_comfort, fill = group_calls)) +
+  geom_boxplot() +
+  labs(title = "Group Calls vs. Sharing Comfort Online", x = "Group Calls Participation", y = "Sharing Comfort Level")
+```
+
+## Income
+```{r income-plot}
+ggplot(data, aes(x = annual_income, y = daily_meaningful_contacts, fill = annual_income)) +
+  geom_boxplot() +
+  labs(title = "Annual Income vs. Daily Meaningful Contacts", x = "Annual Income", y = "Number of Meaningful Contacts") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## Name
+```{r name-plot}
+data %>%
+  group_by(real_name_usage) %>%
+  summarize(mean_sharing_comfort = mean(sharing_comfort, na.rm = TRUE)) %>%
+  mutate(percentage = mean_sharing_comfort / sum(mean_sharing_comfort) * 100) %>%
+  ggplot(aes(x = "", y = percentage, fill = as.factor(real_name_usage))) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y", start = 0) +
+  labs(
+    title = "Average Sharing Comfort by Real Name Usage",
+    fill = "Real Name Usage Frequency",
+    y = "Percentage",
+    x = NULL
+  ) +
+  theme_void() +
+  theme(legend.position = "right")
+```
+
+## Friend
+```{r friend-plot}
+data %>%
+  group_by(friend_count) %>%
+  summarize(mean_loneliness = mean(loneliness_frequency, na.rm = TRUE)) %>%
+  ggplot(aes(x = friend_count, y = mean_loneliness, group = 1)) +
+  geom_line(color = "blue", size = 1) +
+  geom_point(color = "red", size = 2) +
+  labs(
+    title = "Mean Loneliness Frequency by Friend Count",
+    x = "Number of Friends",
+    y = "Mean Loneliness Frequency"
+  ) +
+  theme_minimal()
+```
+
+
+
+
+
+
+
+

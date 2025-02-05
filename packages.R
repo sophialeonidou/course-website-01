@@ -52,72 +52,11 @@ data <- tibble(
 
 #install.packages("see")
 
-#install.packages('knitr')
-#install.packages('kableExtra')
-#install.packages("psych")
-#install.packages("tidyverse")
+install.packages('knitr')
+install.packages('kableExtra')
 
-#install.packages("writexl")  
-
-#install.packages("GGally") 
+install.packages("writexl")  
 library(writexl)
 
 write_xlsx(data, "data.xlsx")
 getwd()
-
-
-
-
-
-data <- data %>%
-  mutate(
-    loneliness_frequency = as.numeric(factor(loneliness_frequency, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
-    employment_status = factor(employment_status),
-    relationship_status = factor(relationship_status),
-    group_calls = factor(group_calls, levels = c("No", "Yes"), ordered = TRUE),
-    sharing_comfort = as.numeric(factor(sharing_comfort, levels = c("Very uncomfortable", "Uncomfortable", "Neutral", "Comfortable", "Very comfortable"), ordered = TRUE)),
-    real_name_usage = as.numeric(factor(real_name_usage, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
-    friend_count = as.numeric(factor(friend_count, levels = c("None", "1-3", "4-6", "6-8", "8 and more"), ordered = TRUE)),
-    daily_meaningful_contacts = as.numeric(factor(daily_meaningful_contacts, levels = c("None", "1-5", "6-10", "11-20", "20 and more"), ordered = TRUE))
-  )
-
-
-
-cor.test(data$age, data$loneliness_frequency, method = "spearman")
-
-ggplot(data, aes(x = age, y = loneliness_frequency)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", color = "blue") +
-  labs(title = "Age vs. Loneliness Frequency", x = "Age", y = "Loneliness Frequency")
-
-
-
-summary(data)
-str(data)
-
-data <- data %>%
-  mutate(
-    loneliness_frequency = as.numeric(factor(loneliness_frequency, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
-    employment_status = factor(employment_status),
-    relationship_status = factor(relationship_status),
-    group_calls = factor(group_calls, levels = c("No", "Yes"), ordered = TRUE),
-    sharing_comfort = as.numeric(factor(sharing_comfort, levels = c("Very uncomfortable", "Uncomfortable", "Neutral", "Comfortable", "Very comfortable"), ordered = TRUE)),
-    real_name_usage = as.numeric(factor(real_name_usage, levels = c("Never", "Rarely", "Sometimes", "Often", "Always"), ordered = TRUE)),
-    friend_count = as.numeric(factor(friend_count, levels = c("None", "1-3", "4-6", "6-8", "8 and more"), ordered = TRUE)),
-    daily_meaningful_contacts = as.numeric(factor(daily_meaningful_contacts, levels = c("None", "1-5", "6-10", "11-20", "20 and more"), ordered = TRUE))
-  )
-
-data <- data %>% filter(!is.na(age) & !is.na(loneliness_frequency))
-
-# Replot with clearer limits and handling of empty data
-ggplot(data, aes(x = age, y = loneliness_frequency)) +
-  geom_point(alpha = 0.5, color = "blue") +
-  geom_smooth(method = "lm", color = "red", se = FALSE) +  # Add trendline without shading
-  scale_x_continuous(limits = c(min(data$age, na.rm = TRUE), max(data$age, na.rm = TRUE))) +
-  scale_y_continuous(limits = c(min(data$loneliness_frequency, na.rm = TRUE), max(data$loneliness_frequency, na.rm = TRUE))) +
-  labs(
-    title = "Age vs. Loneliness Frequency",
-    x = "Age",
-    y = "Loneliness Frequency"
-  ) +
-  theme_minimal()
