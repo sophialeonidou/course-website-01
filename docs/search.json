@@ -7,27 +7,6 @@
     "text": "Join. Share. Connect.\nSign up to access live, anonymous group calls. Share your challenges and engage with others who understand. Build your emotional support network, all from the comfort of your home.\n*Design Element: (Placeholder for infographic on how the platform works: sign-up &gt; join group calls &gt; connect)\nHow EndingLoneliness Works"
   },
   {
-    "objectID": "tab-presentation/presentation-index.html",
-    "href": "tab-presentation/presentation-index.html",
-    "title": "Examples of presentations",
-    "section": "",
-    "text": "Here we can add links to presentations.\nFor now you can access the presentation by adjusting the URL below with your details\nhttps://YOUR-GITHUB-ACCOUNT.github.io/NAME-OF-YOUR-GIT-REPO/tab-presentation/presentation1/presentation-example.html\nSimply change my capitalized text for your: i) your github username\nii) the name of your github repo then copy the URL and paste it to visit the webpage.\nThe adjusted URL above should take you to an example of a simple Quarto presentation."
-  },
-  {
-    "objectID": "tab-one/tab-one-index.html",
-    "href": "tab-one/tab-one-index.html",
-    "title": "About",
-    "section": "",
-    "text": "EndingLoneliness is an innovative online service platform designed to combat loneliness and foster meaningful connections by providing a safe space for individuals to share their everyday or personal challenges through group calls.\nTargeting adults with demanding lifestyles, the platform offers a convenient and accessible solution for those who struggle to engage in traditional social interactions. Unlike therapy or mental health services, EndingLoneliness focuses on mutual understanding, listening, and support, without offering clinical or psychological advice."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "EndingLoneliness",
-    "section": "",
-    "text": "Feel heard, find connection, and combat loneliness—on your terms.\nEndingLoneliness is an online platform offering group calls designed to foster connection and understanding. Anonymously share your thoughts and challenges in a safe space, and discover the power of mutual support. Join us and take the first step toward meaningful connections today.\n“Join the Conversation, End the Loneliness”\n“Where Connections Begin, Loneliness Ends”\n“Because No One Should Feel Alone”\n** appropriate for people seeking non-therapeutic connection. It distinguishes itself from mental health services by focusing on alleviating loneliness rather than addressing clinical issues."
-  },
-  {
     "objectID": "tab-presentation/presentation1/presentation-example.html#what-this-course-is-about",
     "href": "tab-presentation/presentation1/presentation-example.html#what-this-course-is-about",
     "title": "Course overview",
@@ -96,6 +75,41 @@
     "title": "Course overview",
     "section": "Summary",
     "text": "Summary\n\nDashboards are powerful tools for decision-making.\nEffective dashboards balance clarity, relevance, and visual appeal.\nAvoid common pitfalls by focusing on user needs and testing designs."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "EndingLoneliness",
+    "section": "",
+    "text": "Feel heard, find connection, and combat loneliness—on your terms.\nEndingLoneliness is an online platform offering group calls designed to foster connection and understanding. Anonymously share your thoughts and challenges in a safe space, and discover the power of mutual support. Join us and take the first step toward meaningful connections today.\n“Join the Conversation, End the Loneliness”\n“Where Connections Begin, Loneliness Ends”\n“Because No One Should Feel Alone”\n** appropriate for people seeking non-therapeutic connection. It distinguishes itself from mental health services by focusing on alleviating loneliness rather than addressing clinical issues."
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html",
+    "href": "survey analysis/surveyanalysis.html",
+    "title": "Survey Data Analysis",
+    "section": "",
+    "text": "codebook &lt;- tibble(\n  variable_name = c(\n    \"gender\", \"age\", \"annual_income\", \"employment_status\", \n    \"relationship_status\", \"loneliness_frequency\", \"group_calls\", \n    \"video_call_frequency\", \"social_media_platform\", \"paid_online_services\", \n    \"motivation_online_community\", \"platform_preference\", \"real_name_usage\", \n    \"subscription_payments\", \"sharing_comfort\", \"daily_meaningful_contacts\", \n    \"friend_count\"\n  ),\n  question = c(\n    \"What is your gender?\",\n    \"What is your age?\",\n    \"What is your annual income?\",\n    \"What is your employment status?\",\n    \"What is your relationship status?\",\n    \"How often do you feel lonely or isolated?\",\n    \"Have you ever participated in group calls or support groups online?\",\n    \"How often do you communicate with friends or family through video calls?\",\n    \"Which social media platforms do you use most frequently?\",\n    \"Do you subscribe to any paid online communities or services?\",\n    \"What motivates you to join a new online community?\",\n    \"What do you look for when choosing a platform for social interaction?\",\n    \"How often do you use your real name on online services/platforms?\",\n    \"How many subscription-based payments are you actively using right now?\",\n    \"How comfortable are you sharing personal experiences in an online setting?\",\n    \"How many people do you come into meaningful contact with on a daily basis?\",\n    \"How many people could you call your friends?\"\n  )\n)\n\n\nset.seed(123)\ndata &lt;- tibble(\n  gender = sample(c(\"Female\", \"Male\"), 100, replace = TRUE),\n  age = round(rexp(100, rate = 0.05) + 18),  # Skewed age distribution\n  annual_income = sample(c(\"0-15000 €\", \"15000-25000 €\", \"25000-35000 €\", \"35000-45000 €\", \"45000+ €\"), 100, replace = TRUE),\n  employment_status = sample(c(\"Unemployed\", \"Part-time\", \"Full-time\", \"Freelancer\"), 100, replace = TRUE),\n  relationship_status = sample(c(\"Single\", \"In a relationship\", \"Married\", \"Divorced\"), 100, replace = TRUE),\n  loneliness_frequency = sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 100, replace = TRUE),\n  group_calls = sample(c(\"Yes\", \"No\"), 100, replace = TRUE),\n  video_call_frequency = sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 100, replace = TRUE),\n  social_media_platform = sample(c(\"Instagram\", \"TikTok\", \"Facebook\", \"Twitter\"), 100, replace = TRUE),\n  paid_online_services = sample(c(\"Yes\", \"No\"), 100, replace = TRUE),\n  motivation_online_community = sample(c(\"Learning new skills\", \"Meeting new people\", \"Support for personal issues\", \"Entertainment\"), 100, replace = TRUE),\n  platform_preference = sample(c(\"Ease of use\", \"Privacy features\", \"Community guidelines\", \"Content quality\"), 100, replace = TRUE),\n  real_name_usage = sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 100, replace = TRUE),\n  subscription_payments = sample(c(\"None\", \"1-3\", \"4-5\", \"6 or more\"), 100, replace = TRUE),\n  sharing_comfort = sample(c(\"Very uncomfortable\", \"Uncomfortable\", \"Neutral\", \"Comfortable\", \"Very comfortable\"), 100, replace = TRUE),\n  daily_meaningful_contacts = sample(c(\"None\", \"1-5\", \"6-10\", \"11-20\", \"20 and more\"), 100, replace = TRUE),\n  friend_count = sample(c(\"None\", \"1-3\", \"4-6\", \"6-8\", \"8 and more\"), 100, replace = TRUE)\n)"
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html#employment",
+    "href": "survey analysis/surveyanalysis.html#employment",
+    "title": "Survey Data Analysis",
+    "section": "Employment",
+    "text": "Employment\n\ndata &lt;- data %&gt;%\n  mutate(\n    loneliness_frequency = as.numeric(factor(loneliness_frequency, levels = c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), ordered = TRUE)),\n    employment_status = factor(employment_status),\n    relationship_status = factor(relationship_status),\n    group_calls = factor(group_calls, levels = c(\"No\", \"Yes\"), ordered = TRUE),\n    sharing_comfort = as.numeric(factor(sharing_comfort, levels = c(\"Very uncomfortable\", \"Uncomfortable\", \"Neutral\", \"Comfortable\", \"Very comfortable\"), ordered = TRUE)),\n    real_name_usage = as.numeric(factor(real_name_usage, levels = c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), ordered = TRUE)),\n    friend_count = as.numeric(factor(friend_count, levels = c(\"None\", \"1-3\", \"4-6\", \"6-8\", \"8 and more\"), ordered = TRUE)),\n    daily_meaningful_contacts = as.numeric(factor(daily_meaningful_contacts, levels = c(\"None\", \"1-5\", \"6-10\", \"11-20\", \"20 and more\"), ordered = TRUE))\n  )\n\nggplot(data, aes(x = employment_status, y = loneliness_frequency)) +\n  geom_boxplot() +\n  labs(title = \"Employment Status vs. Loneliness Frequency\", x = \"Employment Status\", y = \"Loneliness Frequency\")\n\nWarning: Removed 100 rows containing non-finite outside the scale range\n(`stat_boxplot()`)."
+  },
+  {
+    "objectID": "tab-one/tab-one-index.html",
+    "href": "tab-one/tab-one-index.html",
+    "title": "About",
+    "section": "",
+    "text": "EndingLoneliness is an innovative online service platform designed to combat loneliness and foster meaningful connections by providing a safe space for individuals to share their everyday or personal challenges through group calls.\nTargeting adults with demanding lifestyles, the platform offers a convenient and accessible solution for those who struggle to engage in traditional social interactions. Unlike therapy or mental health services, EndingLoneliness focuses on mutual understanding, listening, and support, without offering clinical or psychological advice."
+  },
+  {
+    "objectID": "tab-presentation/presentation-index.html",
+    "href": "tab-presentation/presentation-index.html",
+    "title": "Examples of presentations",
+    "section": "",
+    "text": "Here we can add links to presentations.\nFor now you can access the presentation by adjusting the URL below with your details\nhttps://YOUR-GITHUB-ACCOUNT.github.io/NAME-OF-YOUR-GIT-REPO/tab-presentation/presentation1/presentation-example.html\nSimply change my capitalized text for your: i) your github username\nii) the name of your github repo then copy the URL and paste it to visit the webpage.\nThe adjusted URL above should take you to an example of a simple Quarto presentation."
   },
   {
     "objectID": "About.html",
