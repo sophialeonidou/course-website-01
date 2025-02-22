@@ -11,12 +11,14 @@ website:
         text: Home
       - href: About.qmd
         text: AboutX
-      - href: InformationAbouttheProduct.qmd
-        text: Information About the Product
       - href: iFrame.qmd
         text: Questionnaire iFrame
       - href: survey analysis/surveyanalysis.qmd
-        text: Survey Analysis
+        text: Static Report
+      - href: SentimentAnalysis.qmd
+        text: Sentiment Analysis
+      - href: SignUp.qmd
+        text: Sign Up
     
         
         

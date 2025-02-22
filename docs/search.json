@@ -1,10 +1,115 @@
 [
   {
-    "objectID": "InformationAbouttheProduct.html",
-    "href": "InformationAbouttheProduct.html",
-    "title": "Information About the Product",
+    "objectID": "About.html",
+    "href": "About.html",
+    "title": "AboutX",
     "section": "",
-    "text": "Join. Share. Connect.\nSign up to access live, anonymous group calls. Share your challenges and engage with others who understand. Build your emotional support network, all from the comfort of your home.\n*Design Element: (Placeholder for infographic on how the platform works: sign-up &gt; join group calls &gt; connect)\nHow EndingLoneliness Works"
+    "text": "EndingLoneliness is an innovative online service platform designed to combat loneliness and foster meaningful connections by providing a safe space for individuals to share their everyday or personal challenges through group calls.\nTargeting adults with demanding lifestyles, the platform offers a convenient and accessible solution for those who struggle to engage in traditional social interactions. Unlike therapy or mental health services, EndingLoneliness focuses on mutual understanding, listening, and support, without offering clinical or psychological advice."
+  },
+  {
+    "objectID": "tab-presentation/presentation-index.html",
+    "href": "tab-presentation/presentation-index.html",
+    "title": "Examples of presentations",
+    "section": "",
+    "text": "Here we can add links to presentations.\nFor now you can access the presentation by adjusting the URL below with your details\nhttps://YOUR-GITHUB-ACCOUNT.github.io/NAME-OF-YOUR-GIT-REPO/tab-presentation/presentation1/presentation-example.html\nSimply change my capitalized text for your: i) your github username\nii) the name of your github repo then copy the URL and paste it to visit the webpage.\nThe adjusted URL above should take you to an example of a simple Quarto presentation."
+  },
+  {
+    "objectID": "SentimentAnalysis.html",
+    "href": "SentimentAnalysis.html",
+    "title": "Sentiment Analysis of EndingLoneliness Participants Feedback",
+    "section": "",
+    "text": "Code\n# Create a feedback dataset\nfeedback_data &lt;- tibble(\n  feedback_id = paste0(\"user_\", 1:40),  # Create user_1 to user_40\n  feedback_text = c(\n    # Positive Feedback (24)\n    \"EndingLoneliness has truly changed my life. I’ve made meaningful connections and no longer feel isolated!\",\n    \"I love the group calls! Talking to people who understand me has helped boost my confidence.\",\n    \"The forum discussions are so engaging. It feels like a safe space to share my thoughts without judgment.\",\n    \"I used to feel alone every evening, but thanks to this platform, I have a supportive community.\",\n    \"This is the best platform I’ve found for connecting with like-minded individuals. Highly recommended!\",\n    \"The real-time emotional insights helped me understand my own mental well-being better.\",\n    \"I never thought virtual friendships could feel this real! The platform really fosters genuine connections.\",\n    \"The interface is super easy to use, and I love how the platform encourages active participation.\",\n    \"Since joining, I’ve gone from feeling lonely every day to feeling connected and supported.\",\n    \"EndingLoneliness doesn’t just provide social interactions, it truly fosters a sense of belonging.\",\n    \"I’ve met people from around the world and finally feel understood. This platform is amazing!\",\n    \"The discussions on loneliness and mental health are really insightful and helpful.\",\n    \"EndingLoneliness has given me a reason to look forward to my evenings. I love the community!\",\n    \"I was skeptical at first, but after a month of using this, I’ve genuinely felt happier and more connected.\",\n    \"Having a place where I can openly share my thoughts without fear of judgment is invaluable.\",\n    \"The group calls are so well-moderated, and I feel safe opening up in them.\",\n    \"I appreciate how easy it is to find like-minded individuals and have deep conversations.\",\n    \"The platform helped me reconnect with socializing in a way I never thought possible.\",\n    \"I used to be very shy, but participating in the discussions has made me more confident.\",\n    \"EndingLoneliness is not just a platform, it’s a movement towards genuine human connection!\",\n    \"I feel a sense of belonging here that I haven’t felt in years.\",\n    \"The design of the platform makes it easy to engage, and I love how intuitive it is!\",\n    \"I no longer feel like I’m battling loneliness alone. This platform has truly helped me.\",\n    \"It’s comforting to know that there are so many people going through similar experiences.\",\n    \n    # Neutral Feedback (10)\n    \"The platform is good, but I wish there were more features for one-on-one conversations.\",\n    \"I like the community aspect, but sometimes I find it hard to keep up with discussions.\",\n    \"The group calls are nice, but I don’t always find people I relate to.\",\n    \"I appreciate what this platform is trying to do, but I’m not sure if it’s the right fit for me.\",\n    \"The service is decent, but I haven’t noticed a significant change in my loneliness yet.\",\n    \"I like the platform, but I wish there were more structured discussions.\",\n    \"It would be great to have an option to filter group calls based on topics of interest.\",\n    \"The platform is helpful, but sometimes discussions don’t go deep enough for me.\",\n    \"I like being here, but I don’t engage as much as I probably should.\",\n    \"It’s a nice concept, but I still haven’t made strong connections yet.\",\n    \n    # Negative Feedback (6)\n    \"I wish there were more ways to interact outside of group calls.\",\n    \"Sometimes I find the platform quiet when I really need someone to talk to.\",\n    \"I tried using this for weeks, but I still feel disconnected from the conversations.\",\n    \"Some discussions feel repetitive, and I struggle to find new insights.\",\n    \"I was hoping for deeper engagement, but I often feel like I’m just a spectator.\",\n    \"I expected more active engagement, but I often find myself in empty or inactive group calls.\"\n  ) \n)\n\n# Save the dataset to a CSV file\nwrite_csv(feedback_data, \"EndingLoneliness_Feedback.csv\")\n\n\n\n\nCode\nfeedback_data &lt;- read_csv(\"EndingLoneliness_Feedback.csv\", show_col_types = FALSE)\n\n# Check the first few rows, and render as an html table\nhead(feedback_data, 20) %&gt;% \n  kbl()\n\n\n\n\n\nfeedback_id\nfeedback_text\n\n\n\n\nuser_1\nEndingLoneliness has truly changed my life. I’ve made meaningful connections and no longer feel isolated!\n\n\nuser_2\nI love the group calls! Talking to people who understand me has helped boost my confidence.\n\n\nuser_3\nThe forum discussions are so engaging. It feels like a safe space to share my thoughts without judgment.\n\n\nuser_4\nI used to feel alone every evening, but thanks to this platform, I have a supportive community.\n\n\nuser_5\nThis is the best platform I’ve found for connecting with like-minded individuals. Highly recommended!\n\n\nuser_6\nThe real-time emotional insights helped me understand my own mental well-being better.\n\n\nuser_7\nI never thought virtual friendships could feel this real! The platform really fosters genuine connections.\n\n\nuser_8\nThe interface is super easy to use, and I love how the platform encourages active participation.\n\n\nuser_9\nSince joining, I’ve gone from feeling lonely every day to feeling connected and supported.\n\n\nuser_10\nEndingLoneliness doesn’t just provide social interactions, it truly fosters a sense of belonging.\n\n\nuser_11\nI’ve met people from around the world and finally feel understood. This platform is amazing!\n\n\nuser_12\nThe discussions on loneliness and mental health are really insightful and helpful.\n\n\nuser_13\nEndingLoneliness has given me a reason to look forward to my evenings. I love the community!\n\n\nuser_14\nI was skeptical at first, but after a month of using this, I’ve genuinely felt happier and more connected.\n\n\nuser_15\nHaving a place where I can openly share my thoughts without fear of judgment is invaluable.\n\n\nuser_16\nThe group calls are so well-moderated, and I feel safe opening up in them.\n\n\nuser_17\nI appreciate how easy it is to find like-minded individuals and have deep conversations.\n\n\nuser_18\nThe platform helped me reconnect with socializing in a way I never thought possible.\n\n\nuser_19\nI used to be very shy, but participating in the discussions has made me more confident.\n\n\nuser_20\nEndingLoneliness is not just a platform, it’s a movement towards genuine human connection!\n\n\n\n\n\n\n\n\nSentiment Overall\nThis table and graph below show the overall distribution of sentiment for the EndingLoneliness user feedback dataset.\n\n\nCode\nfeedback_data &lt;- read_csv(\"EndingLoneliness_Feedback.csv\", show_col_types = FALSE)\n\n# Dynamically categorize sentiment based on predefined distribution\nfeedback_data &lt;- feedback_data %&gt;%\n  mutate(sentiment_category = case_when(\n    row_number() &lt;= 24 ~ \"Positive\",   # First 24 are positive\n    row_number() &gt; 24 & row_number() &lt;= 34 ~ \"Neutral\",  # Next 10 are neutral\n    TRUE ~ \"Negative\"  # Remaining 6 are negative\n  ))\n\n# Summarize sentiment counts\noverall_sentiment &lt;- feedback_data %&gt;%\n  count(sentiment_category) %&gt;%\n  mutate(Proportion = round(n / sum(n), 2)) %&gt;%  # Calculate proportion\n  rename(\n    `Sentiment` = sentiment_category,\n    `Count` = n\n  )\n\n# Display the summary table with formatting\noverall_sentiment %&gt;%\n  kbl() %&gt;%\n  kable_styling(full_width = FALSE, bootstrap_options = c(\"striped\", \"hover\", \"condensed\"))\n\n\n\n\n\nSentiment\nCount\nProportion\n\n\n\n\nNegative\n6\n0.15\n\n\nNeutral\n10\n0.25\n\n\nPositive\n24\n0.60\n\n\n\n\n\n\n\n\n\nCode\nggplot(overall_sentiment, aes(x = Sentiment, y = Proportion, fill = Sentiment)) +\n  geom_bar(stat = \"identity\", color = \"black\") +  # Bar plot with border\n  geom_text(aes(label = Proportion * 100), vjust = -0.5, size = 4) +  # Add percentage labels\n  scale_fill_manual(values = c(\"Negative\" = \"red\", \"Neutral\" = \"green\", \"Positive\" = \"blue\")) +  # Custom colors\n  labs(title = \"Sentiment Overall Distribution\",\n       x = \"Sentiment\",\n       y = \"Proportion (%)\") +\n  theme_minimal()  # Clean theme"
+  },
+  {
+    "objectID": "SignUp.html",
+    "href": "SignUp.html",
+    "title": "Sign Up",
+    "section": "",
+    "text": "“Join the Movement”\nJoin. Share. Connect.\n📌Sign up to access live, anonymous group calls. Share your challenges and engage with others who understand. Build your emotional support network, all from the comfort of your home.\n*Design Element: (Placeholder for infographic on how the platform works: sign-up &gt; join group calls &gt; connect)"
+  },
+  {
+    "objectID": "SignUp.html#email",
+    "href": "SignUp.html#email",
+    "title": "Sign Up",
+    "section": "📩 Email",
+    "text": "📩 Email\n[lonelinessending@gmail.com]"
+  },
+  {
+    "objectID": "SignUp.html#connect",
+    "href": "SignUp.html#connect",
+    "title": "Sign Up",
+    "section": "🌐 Connect",
+    "text": "🌐 Connect\n-📷 Instagram\n-🎵 TikTok"
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html",
+    "href": "survey analysis/surveyanalysis.html",
+    "title": "Survey Analysis",
+    "section": "",
+    "text": "Code\n# Create data tables\n\n# Create Codebook\ncodebook &lt;- tibble(\n  variable_name = c(\n    \"gender\", \"age\", \"annual_income\", \"employment_status\", \n    \"relationship_status\", \"loneliness_frequency\", \"group_calls\", \n    \"video_call_frequency\", \"social_media_platform\", \"paid_online_services\", \n    \"motivation_online_community\", \"platform_preference\", \"real_name_usage\", \n    \"subscription_payments\", \"sharing_comfort\", \"daily_meaningful_contacts\", \n    \"friend_count\"\n  ),\n  question = c(\n    \"What is your gender?\",\n    \"What is your age?\",\n    \"What is your annual income?\",\n    \"What is your employment status?\",\n    \"What is your relationship status?\",\n    \"How often do you feel lonely or isolated?\",\n    \"Have you ever participated in group calls or support groups online?\",\n    \"How often do you communicate with friends or family through video calls?\",\n    \"Which social media platforms do you use most frequently?\",\n    \"Do you subscribe to any paid online communities or services?\",\n    \"What motivates you to join a new online community?\",\n    \"What do you look for when choosing a platform for social interaction?\",\n    \"How often do you use your real name on online services/platforms?\",\n    \"How many subscription-based payments are you actively using right now?\",\n    \"How comfortable are you sharing personal experiences in an online setting?\",\n    \"How many people do you come into meaningful contact with on a daily basis?\",\n    \"How many people could you call your friends?\"\n  )\n)\n\n\nset.seed(123)\ndata &lt;- tibble(\n  gender = sample(c(\"Female\", \"Male\"), 100, replace = TRUE),\n  age = sample(26:46, 100, replace = TRUE),  # Skewed age distribution\n  annual_income = sample(c(\"0-15000 €\", \"15000-25000 €\", \"25000-35000 €\", \"35000-45000 €\", \"45000+ €\"), 100, replace = TRUE),\n  employment_status = sample(c(\"Unemployed\", \"Part-time\", \"Full-time\", \"Freelancer\"), 100, replace = TRUE),\n  relationship_status = sample(c(\"Single\", \"In a relationship\", \"Married\", \"Divorced\"), 100, replace = TRUE),\n  loneliness_frequency = sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 100, replace = TRUE),\n  group_calls = sample(c(\"Yes\", \"No\"), 100, replace = TRUE),\n  video_call_frequency = sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 100, replace = TRUE),\n  social_media_platform = sample(c(\"Instagram\", \"TikTok\", \"Facebook\", \"Twitter\"), 100, replace = TRUE),\n  paid_online_services = sample(c(\"Yes\", \"No\"), 100, replace = TRUE),\n  motivation_online_community = sample(c(\"Learning new skills\", \"Meeting new people\", \"Support for personal issues\", \"Entertainment\"), 100, replace = TRUE),\n  platform_preference = sample(c(\"Ease of use\", \"Privacy features\", \"Community guidelines\", \"Content quality\"), 100, replace = TRUE),\n  real_name_usage = sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 100, replace = TRUE),\n  subscription_payments = sample(c(\"None\", \"1-3\", \"4-5\", \"6 or more\"), 100, replace = TRUE),\n  sharing_comfort = sample(c(\"Very uncomfortable\", \"Uncomfortable\", \"Neutral\", \"Comfortable\", \"Very comfortable\"), 100, replace = TRUE),\n  daily_meaningful_contacts = sample(c(\"None\", \"1-5\", \"6-10\", \"11-20\", \"20 and more\"), 100, replace = TRUE),\n  friend_count = sample(c(\"None\", \"1-3\", \"4-6\", \"6-8\", \"8 and more\"), 100, replace = TRUE)\n)\n\nadjust_loneliness &lt;- function(employment_status, relationship_status, friend_count, age) {\n  if (employment_status == \"Full-time\") {\n    return(sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 1, prob = c(0.05, 0.10, 0.25, 0.30, 0.30)))  \n  } else if (relationship_status %in% c(\"In a relationship\", \"Married\")) {\n    return(sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 1, prob = c(0.30, 0.30, 0.25, 0.10, 0.05)))  \n  } else if (friend_count %in% c(\"6-8\", \"8 and more\")) {\n    return(sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 1, prob = c(0.40, 0.30, 0.20, 0.05, 0.05)))  \n  } else if (age &gt;= 30 & age &lt;= 39) {\n    return(sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 1, prob = c(0.05, 0.15, 0.30, 0.30, 0.20)))  \n  } else {\n    return(sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 1, prob = c(0.15, 0.25, 0.30, 0.20, 0.10)))  \n  }\n}\n\n# Function to assign motivation for online community participation\nadjust_motivation &lt;- function() {\n  return(sample(c(\"Learning new skills\", \"Meeting new people\", \"Support for personal issues\", \"Entertainment\"), 1,\n                prob = c(0.15, 0.15, 0.50, 0.20)))  # More people joining for support\n}\n\n# Function to adjust sharing comfort level\nadjust_sharing_comfort &lt;- function() {\n  return(sample(c(\"Very uncomfortable\", \"Uncomfortable\", \"Neutral\", \"Comfortable\", \"Very comfortable\"), 1,\n                prob = c(0.05, 0.10, 0.20, 0.35, 0.30)))  # More people feel comfortable sharing\n}\n\n# Function to adjust real name usage based on subscription\nadjust_real_name_usage &lt;- function(paid_online_services) {\n  if (paid_online_services == \"Yes\") {\n    return(sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 1, prob = c(0.05, 0.10, 0.25, 0.30, 0.30)))  \n  } else {\n    return(sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 1, prob = c(0.15, 0.20, 0.30, 0.20, 0.15)))  \n  }\n}\n\n# Apply probability adjustments\ndata &lt;- data %&gt;%\n  rowwise() %&gt;%\n  mutate(\n    loneliness_frequency = adjust_loneliness(employment_status, relationship_status, friend_count, age),\n    motivation_online_community = adjust_motivation(),\n    sharing_comfort = adjust_sharing_comfort(),\n    real_name_usage = adjust_real_name_usage(paid_online_services)\n  )"
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html#factors-to-numeric",
+    "href": "survey analysis/surveyanalysis.html#factors-to-numeric",
+    "title": "Survey Analysis",
+    "section": "Factors to Numeric",
+    "text": "Factors to Numeric\n\n\nCode\ndata &lt;- data %&gt;%\n  mutate(\n    loneliness_frequency = as.numeric(factor(loneliness_frequency, levels = c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), ordered = TRUE)),\n    employment_status = factor(employment_status),\n    relationship_status = factor(relationship_status),\n    group_calls = factor(group_calls, levels = c(\"No\", \"Yes\"), ordered = TRUE),\n    sharing_comfort = as.numeric(factor(sharing_comfort, levels = c(\"Very uncomfortable\", \"Uncomfortable\", \"Neutral\", \"Comfortable\", \"Very comfortable\"), ordered = TRUE)),\n    real_name_usage = as.numeric(factor(real_name_usage, levels = c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), ordered = TRUE)),\n    friend_count = as.numeric(factor(friend_count, levels = c(\"None\", \"1-3\", \"4-6\", \"6-8\", \"8 and more\"), ordered = TRUE)),\n    daily_meaningful_contacts = as.numeric(factor(daily_meaningful_contacts, levels = c(\"None\", \"1-5\", \"6-10\", \"11-20\", \"20 and more\"), ordered = TRUE))\n  )"
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html#age-distribution",
+    "href": "survey analysis/surveyanalysis.html#age-distribution",
+    "title": "Survey Analysis",
+    "section": "Age Distribution",
+    "text": "Age Distribution\n\n\nCode\n# Age distribution\ndata %&gt;%\n  mutate(age_group = cut(age, breaks = seq(26, 46, by = 10), include.lowest = TRUE)) %&gt;%\n  group_by(age_group) %&gt;%\n  summarize(mean_loneliness = mean(loneliness_frequency, na.rm = TRUE)) %&gt;%\n  ggplot(aes(x = age_group, y = mean_loneliness, fill = age_group)) +\n  geom_bar(stat = \"identity\", alpha = 0.8) +\n  labs(\n    title = \"Mean Loneliness Frequency by Age Group\",\n    x = \"Age Group\",\n    y = \"Mean Loneliness Frequency\",\n    fill = \"Age Group\"\n  ) +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html#employment",
+    "href": "survey analysis/surveyanalysis.html#employment",
+    "title": "Survey Analysis",
+    "section": "Employment",
+    "text": "Employment\n\n\nCode\nggplot(data, aes(x = employment_status, y = loneliness_frequency, fill = employment_status)) +\n  geom_boxplot() +\n  labs(title = \"Employment Status vs. Loneliness Frequency\", x = \"Employment Status\", y = \"Loneliness Frequency\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html#relationship",
+    "href": "survey analysis/surveyanalysis.html#relationship",
+    "title": "Survey Analysis",
+    "section": "Relationship",
+    "text": "Relationship\n\n\nCode\nggplot(data, aes(x = relationship_status, y = loneliness_frequency, fill = relationship_status)) +\n  geom_boxplot() +\n  labs(title = \"Relationship Status vs. Loneliness Frequency\", x = \"Relationship Status\", y = \"Loneliness Frequency\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\n\n\n\n\n##Groupcalls\n\n\nCode\nggplot(data, aes(x = group_calls, y = sharing_comfort, fill = group_calls)) +\n  geom_boxplot() +\n  labs(title = \"Group Calls vs. Sharing Comfort Online\", x = \"Group Calls Participation\", y = \"Sharing Comfort Level\")"
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html#income",
+    "href": "survey analysis/surveyanalysis.html#income",
+    "title": "Survey Analysis",
+    "section": "Income",
+    "text": "Income\n\n\nCode\nggplot(data, aes(x = annual_income, y = daily_meaningful_contacts, fill = annual_income)) +\n  geom_boxplot() +\n  labs(title = \"Annual Income vs. Daily Meaningful Contacts\", x = \"Annual Income\", y = \"Number of Meaningful Contacts\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html#name",
+    "href": "survey analysis/surveyanalysis.html#name",
+    "title": "Survey Analysis",
+    "section": "Name",
+    "text": "Name\n\n\nCode\ndata %&gt;%\n  group_by(real_name_usage) %&gt;%\n  summarize(mean_sharing_comfort = mean(sharing_comfort, na.rm = TRUE)) %&gt;%\n  mutate(percentage = mean_sharing_comfort / sum(mean_sharing_comfort) * 100) %&gt;%\n  ggplot(aes(x = \"\", y = percentage, fill = as.factor(real_name_usage))) +\n  geom_bar(stat = \"identity\", width = 1) +\n  coord_polar(\"y\", start = 0) +\n  labs(\n    title = \"Average Sharing Comfort by Real Name Usage\",\n    fill = \"Real Name Usage Frequency\",\n    y = \"Percentage\",\n    x = NULL\n  ) +\n  theme_void() +\n  theme(legend.position = \"right\")"
+  },
+  {
+    "objectID": "survey analysis/surveyanalysis.html#friend",
+    "href": "survey analysis/surveyanalysis.html#friend",
+    "title": "Survey Analysis",
+    "section": "Friend",
+    "text": "Friend\n\n\nCode\ndata %&gt;%\n  group_by(friend_count) %&gt;%\n  summarize(mean_loneliness = mean(loneliness_frequency, na.rm = TRUE)) %&gt;%\n  ggplot(aes(x = friend_count, y = mean_loneliness, group = 1)) +\n  geom_line(color = \"blue\", size = 1) +\n  geom_point(color = \"red\", size = 2) +\n  labs(\n    title = \"Mean Loneliness Frequency by Friend Count\",\n    x = \"Number of Friends\",\n    y = \"Mean Loneliness Frequency\"\n  ) +\n  theme_minimal()\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead."
+  },
+  {
+    "objectID": "tab-one/tab-one-index.html",
+    "href": "tab-one/tab-one-index.html",
+    "title": "About",
+    "section": "",
+    "text": "EndingLoneliness is an innovative online service platform designed to combat loneliness and foster meaningful connections by providing a safe space for individuals to share their everyday or personal challenges through group calls.\nTargeting adults with demanding lifestyles, the platform offers a convenient and accessible solution for those who struggle to engage in traditional social interactions. Unlike therapy or mental health services, EndingLoneliness focuses on mutual understanding, listening, and support, without offering clinical or psychological advice."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "EndingLoneliness",
+    "section": "",
+    "text": "Feel heard, find connection, and combat loneliness—on your terms.\nEndingLoneliness is an online platform offering group calls designed to foster connection and understanding. Anonymously share your thoughts and challenges in a safe space, and discover the power of mutual support. Join us and take the first step toward meaningful connections today.\n“Join the Conversation, End the Loneliness”\n“Where Connections Begin, Loneliness Ends”\n“Because No One Should Feel Alone”\n** appropriate for people seeking non-therapeutic connection. It distinguishes itself from mental health services by focusing on alleviating loneliness rather than addressing clinical issues."
   },
   {
     "objectID": "tab-presentation/presentation1/presentation-example.html#what-this-course-is-about",
@@ -75,89 +180,5 @@
     "title": "Course overview",
     "section": "Summary",
     "text": "Summary\n\nDashboards are powerful tools for decision-making.\nEffective dashboards balance clarity, relevance, and visual appeal.\nAvoid common pitfalls by focusing on user needs and testing designs."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "EndingLoneliness",
-    "section": "",
-    "text": "Feel heard, find connection, and combat loneliness—on your terms.\nEndingLoneliness is an online platform offering group calls designed to foster connection and understanding. Anonymously share your thoughts and challenges in a safe space, and discover the power of mutual support. Join us and take the first step toward meaningful connections today.\n“Join the Conversation, End the Loneliness”\n“Where Connections Begin, Loneliness Ends”\n“Because No One Should Feel Alone”\n** appropriate for people seeking non-therapeutic connection. It distinguishes itself from mental health services by focusing on alleviating loneliness rather than addressing clinical issues."
-  },
-  {
-    "objectID": "survey analysis/surveyanalysis.html",
-    "href": "survey analysis/surveyanalysis.html",
-    "title": "Survey Analysis",
-    "section": "",
-    "text": "# Create data tables\n\n# Create Codebook\ncodebook &lt;- tibble(\n  variable_name = c(\n    \"gender\", \"age\", \"annual_income\", \"employment_status\", \n    \"relationship_status\", \"loneliness_frequency\", \"group_calls\", \n    \"video_call_frequency\", \"social_media_platform\", \"paid_online_services\", \n    \"motivation_online_community\", \"platform_preference\", \"real_name_usage\", \n    \"subscription_payments\", \"sharing_comfort\", \"daily_meaningful_contacts\", \n    \"friend_count\"\n  ),\n  question = c(\n    \"What is your gender?\",\n    \"What is your age?\",\n    \"What is your annual income?\",\n    \"What is your employment status?\",\n    \"What is your relationship status?\",\n    \"How often do you feel lonely or isolated?\",\n    \"Have you ever participated in group calls or support groups online?\",\n    \"How often do you communicate with friends or family through video calls?\",\n    \"Which social media platforms do you use most frequently?\",\n    \"Do you subscribe to any paid online communities or services?\",\n    \"What motivates you to join a new online community?\",\n    \"What do you look for when choosing a platform for social interaction?\",\n    \"How often do you use your real name on online services/platforms?\",\n    \"How many subscription-based payments are you actively using right now?\",\n    \"How comfortable are you sharing personal experiences in an online setting?\",\n    \"How many people do you come into meaningful contact with on a daily basis?\",\n    \"How many people could you call your friends?\"\n  )\n)\n\n\nset.seed(123)\ndata &lt;- tibble(\n  gender = sample(c(\"Female\", \"Male\"), 100, replace = TRUE),\n  age = round(rexp(100, rate = 0.05) + 18),  # Skewed age distribution\n  annual_income = sample(c(\"0-15000 €\", \"15000-25000 €\", \"25000-35000 €\", \"35000-45000 €\", \"45000+ €\"), 100, replace = TRUE),\n  employment_status = sample(c(\"Unemployed\", \"Part-time\", \"Full-time\", \"Freelancer\"), 100, replace = TRUE),\n  relationship_status = sample(c(\"Single\", \"In a relationship\", \"Married\", \"Divorced\"), 100, replace = TRUE),\n  loneliness_frequency = sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 100, replace = TRUE),\n  group_calls = sample(c(\"Yes\", \"No\"), 100, replace = TRUE),\n  video_call_frequency = sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 100, replace = TRUE),\n  social_media_platform = sample(c(\"Instagram\", \"TikTok\", \"Facebook\", \"Twitter\"), 100, replace = TRUE),\n  paid_online_services = sample(c(\"Yes\", \"No\"), 100, replace = TRUE),\n  motivation_online_community = sample(c(\"Learning new skills\", \"Meeting new people\", \"Support for personal issues\", \"Entertainment\"), 100, replace = TRUE),\n  platform_preference = sample(c(\"Ease of use\", \"Privacy features\", \"Community guidelines\", \"Content quality\"), 100, replace = TRUE),\n  real_name_usage = sample(c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), 100, replace = TRUE),\n  subscription_payments = sample(c(\"None\", \"1-3\", \"4-5\", \"6 or more\"), 100, replace = TRUE),\n  sharing_comfort = sample(c(\"Very uncomfortable\", \"Uncomfortable\", \"Neutral\", \"Comfortable\", \"Very comfortable\"), 100, replace = TRUE),\n  daily_meaningful_contacts = sample(c(\"None\", \"1-5\", \"6-10\", \"11-20\", \"20 and more\"), 100, replace = TRUE),\n  friend_count = sample(c(\"None\", \"1-3\", \"4-6\", \"6-8\", \"8 and more\"), 100, replace = TRUE)\n)"
-  },
-  {
-    "objectID": "survey analysis/surveyanalysis.html#factors-to-numeric",
-    "href": "survey analysis/surveyanalysis.html#factors-to-numeric",
-    "title": "Survey Analysis",
-    "section": "Factors to Numeric",
-    "text": "Factors to Numeric\n\ndata &lt;- data %&gt;%\n  mutate(\n    loneliness_frequency = as.numeric(factor(loneliness_frequency, levels = c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), ordered = TRUE)),\n    employment_status = factor(employment_status),\n    relationship_status = factor(relationship_status),\n    group_calls = factor(group_calls, levels = c(\"No\", \"Yes\"), ordered = TRUE),\n    sharing_comfort = as.numeric(factor(sharing_comfort, levels = c(\"Very uncomfortable\", \"Uncomfortable\", \"Neutral\", \"Comfortable\", \"Very comfortable\"), ordered = TRUE)),\n    real_name_usage = as.numeric(factor(real_name_usage, levels = c(\"Never\", \"Rarely\", \"Sometimes\", \"Often\", \"Always\"), ordered = TRUE)),\n    friend_count = as.numeric(factor(friend_count, levels = c(\"None\", \"1-3\", \"4-6\", \"6-8\", \"8 and more\"), ordered = TRUE)),\n    daily_meaningful_contacts = as.numeric(factor(daily_meaningful_contacts, levels = c(\"None\", \"1-5\", \"6-10\", \"11-20\", \"20 and more\"), ordered = TRUE))\n  )"
-  },
-  {
-    "objectID": "survey analysis/surveyanalysis.html#age-distribution",
-    "href": "survey analysis/surveyanalysis.html#age-distribution",
-    "title": "Survey Analysis",
-    "section": "Age Distribution",
-    "text": "Age Distribution\n\n# Age distribution\ndata %&gt;%\n  mutate(age_group = cut(age, breaks = seq(18, 95, by = 10), include.lowest = TRUE)) %&gt;%\n  group_by(age_group) %&gt;%\n  summarize(mean_loneliness = mean(loneliness_frequency, na.rm = TRUE)) %&gt;%\n  ggplot(aes(x = age_group, y = mean_loneliness, fill = age_group)) +\n  geom_bar(stat = \"identity\", alpha = 0.8) +\n  labs(\n    title = \"Mean Loneliness Frequency by Age Group\",\n    x = \"Age Group\",\n    y = \"Mean Loneliness Frequency\",\n    fill = \"Age Group\"\n  ) +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
-  },
-  {
-    "objectID": "survey analysis/surveyanalysis.html#employment",
-    "href": "survey analysis/surveyanalysis.html#employment",
-    "title": "Survey Analysis",
-    "section": "Employment",
-    "text": "Employment\n\nggplot(data, aes(x = employment_status, y = loneliness_frequency, fill = employment_status)) +\n  geom_boxplot() +\n  labs(title = \"Employment Status vs. Loneliness Frequency\", x = \"Employment Status\", y = \"Loneliness Frequency\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
-  },
-  {
-    "objectID": "survey analysis/surveyanalysis.html#relationship",
-    "href": "survey analysis/surveyanalysis.html#relationship",
-    "title": "Survey Analysis",
-    "section": "Relationship",
-    "text": "Relationship\n\nggplot(data, aes(x = relationship_status, y = loneliness_frequency, fill = relationship_status)) +\n  geom_boxplot() +\n  labs(title = \"Relationship Status vs. Loneliness Frequency\", x = \"Relationship Status\", y = \"Loneliness Frequency\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\n\n\n\n##Groupcalls\n\nggplot(data, aes(x = group_calls, y = sharing_comfort, fill = group_calls)) +\n  geom_boxplot() +\n  labs(title = \"Group Calls vs. Sharing Comfort Online\", x = \"Group Calls Participation\", y = \"Sharing Comfort Level\")"
-  },
-  {
-    "objectID": "survey analysis/surveyanalysis.html#income",
-    "href": "survey analysis/surveyanalysis.html#income",
-    "title": "Survey Analysis",
-    "section": "Income",
-    "text": "Income\n\nggplot(data, aes(x = annual_income, y = daily_meaningful_contacts, fill = annual_income)) +\n  geom_boxplot() +\n  labs(title = \"Annual Income vs. Daily Meaningful Contacts\", x = \"Annual Income\", y = \"Number of Meaningful Contacts\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
-  },
-  {
-    "objectID": "survey analysis/surveyanalysis.html#name",
-    "href": "survey analysis/surveyanalysis.html#name",
-    "title": "Survey Analysis",
-    "section": "Name",
-    "text": "Name\n\ndata %&gt;%\n  group_by(real_name_usage) %&gt;%\n  summarize(mean_sharing_comfort = mean(sharing_comfort, na.rm = TRUE)) %&gt;%\n  mutate(percentage = mean_sharing_comfort / sum(mean_sharing_comfort) * 100) %&gt;%\n  ggplot(aes(x = \"\", y = percentage, fill = as.factor(real_name_usage))) +\n  geom_bar(stat = \"identity\", width = 1) +\n  coord_polar(\"y\", start = 0) +\n  labs(\n    title = \"Average Sharing Comfort by Real Name Usage\",\n    fill = \"Real Name Usage Frequency\",\n    y = \"Percentage\",\n    x = NULL\n  ) +\n  theme_void() +\n  theme(legend.position = \"right\")"
-  },
-  {
-    "objectID": "survey analysis/surveyanalysis.html#friend",
-    "href": "survey analysis/surveyanalysis.html#friend",
-    "title": "Survey Analysis",
-    "section": "Friend",
-    "text": "Friend\n\ndata %&gt;%\n  group_by(friend_count) %&gt;%\n  summarize(mean_loneliness = mean(loneliness_frequency, na.rm = TRUE)) %&gt;%\n  ggplot(aes(x = friend_count, y = mean_loneliness, group = 1)) +\n  geom_line(color = \"blue\", size = 1) +\n  geom_point(color = \"red\", size = 2) +\n  labs(\n    title = \"Mean Loneliness Frequency by Friend Count\",\n    x = \"Number of Friends\",\n    y = \"Mean Loneliness Frequency\"\n  ) +\n  theme_minimal()\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead."
-  },
-  {
-    "objectID": "tab-one/tab-one-index.html",
-    "href": "tab-one/tab-one-index.html",
-    "title": "About",
-    "section": "",
-    "text": "EndingLoneliness is an innovative online service platform designed to combat loneliness and foster meaningful connections by providing a safe space for individuals to share their everyday or personal challenges through group calls.\nTargeting adults with demanding lifestyles, the platform offers a convenient and accessible solution for those who struggle to engage in traditional social interactions. Unlike therapy or mental health services, EndingLoneliness focuses on mutual understanding, listening, and support, without offering clinical or psychological advice."
-  },
-  {
-    "objectID": "tab-presentation/presentation-index.html",
-    "href": "tab-presentation/presentation-index.html",
-    "title": "Examples of presentations",
-    "section": "",
-    "text": "Here we can add links to presentations.\nFor now you can access the presentation by adjusting the URL below with your details\nhttps://YOUR-GITHUB-ACCOUNT.github.io/NAME-OF-YOUR-GIT-REPO/tab-presentation/presentation1/presentation-example.html\nSimply change my capitalized text for your: i) your github username\nii) the name of your github repo then copy the URL and paste it to visit the webpage.\nThe adjusted URL above should take you to an example of a simple Quarto presentation."
-  },
-  {
-    "objectID": "About.html",
-    "href": "About.html",
-    "title": "AboutX",
-    "section": "",
-    "text": "EndingLoneliness is an innovative online service platform designed to combat loneliness and foster meaningful connections by providing a safe space for individuals to share their everyday or personal challenges through group calls.\nTargeting adults with demanding lifestyles, the platform offers a convenient and accessible solution for those who struggle to engage in traditional social interactions. Unlike therapy or mental health services, EndingLoneliness focuses on mutual understanding, listening, and support, without offering clinical or psychological advice."
   }
 ]

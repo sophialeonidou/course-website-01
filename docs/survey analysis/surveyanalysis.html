@@ -136,16 +136,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">AboutX</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../InformationAbouttheProduct.html"> 
-<span class="menu-text">Information About the Product</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../iFrame.html"> 
 <span class="menu-text">Questionnaire iFrame</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../survey analysis/surveyanalysis.html" aria-current="page"> 
-<span class="menu-text">Survey Analysis</span></a>
+<span class="menu-text">Static Report</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../SentimentAnalysis.html"> 
+<span class="menu-text">Sentiment Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../SignUp.html"> 
+<span class="menu-text">Sign Up</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -163,8 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#questionnaire" id="toc-questionnaire" class="nav-link" data-scroll-target="#questionnaire">Questionnaire</a></li>
+  <li><a href="#questionnaire" id="toc-questionnaire" class="nav-link active" data-scroll-target="#questionnaire">Questionnaire</a></li>
   <li><a href="#data-overview" id="toc-data-overview" class="nav-link" data-scroll-target="#data-overview">Data Overview</a></li>
   <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics">Statistics</a>
   <ul class="collapse">
@@ -202,6 +205,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data tables</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Codebook</span></span>
@@ -239,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">round</span>(<span class="fu">rexp</span>(<span class="dv">100</span>, <span class="at">rate =</span> <span class="fl">0.05</span>) <span class="sc">+</span> <span class="dv">18</span>),  <span class="co"># Skewed age distribution</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">sample</span>(<span class="dv">26</span><span class="sc">:</span><span class="dv">46</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),  <span class="co"># Skewed age distribution</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">annual_income =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"0-15000 €"</span>, <span class="st">"15000-25000 €"</span>, <span class="st">"25000-35000 €"</span>, <span class="st">"35000-45000 €"</span>, <span class="st">"45000+ €"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">employment_status =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Unemployed"</span>, <span class="st">"Part-time"</span>, <span class="st">"Full-time"</span>, <span class="st">"Freelancer"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">relationship_status =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Single"</span>, <span class="st">"In a relationship"</span>, <span class="st">"Married"</span>, <span class="st">"Divorced"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
@@ -255,19 +260,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="at">sharing_comfort =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Very uncomfortable"</span>, <span class="st">"Uncomfortable"</span>, <span class="st">"Neutral"</span>, <span class="st">"Comfortable"</span>, <span class="st">"Very comfortable"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="at">daily_meaningful_contacts =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"1-5"</span>, <span class="st">"6-10"</span>, <span class="st">"11-20"</span>, <span class="st">"20 and more"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="at">friend_count =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"1-3"</span>, <span class="st">"4-6"</span>, <span class="st">"6-8"</span>, <span class="st">"8 and more"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>adjust_loneliness <span class="ot">&lt;-</span> <span class="cf">function</span>(employment_status, relationship_status, friend_count, age) {</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (employment_status <span class="sc">==</span> <span class="st">"Full-time"</span>) {</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Rarely"</span>, <span class="st">"Sometimes"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.10</span>, <span class="fl">0.25</span>, <span class="fl">0.30</span>, <span class="fl">0.30</span>)))  </span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (relationship_status <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"In a relationship"</span>, <span class="st">"Married"</span>)) {</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Rarely"</span>, <span class="st">"Sometimes"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.30</span>, <span class="fl">0.30</span>, <span class="fl">0.25</span>, <span class="fl">0.10</span>, <span class="fl">0.05</span>)))  </span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (friend_count <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"6-8"</span>, <span class="st">"8 and more"</span>)) {</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Rarely"</span>, <span class="st">"Sometimes"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.40</span>, <span class="fl">0.30</span>, <span class="fl">0.20</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>)))  </span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (age <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">39</span>) {</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Rarely"</span>, <span class="st">"Sometimes"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.15</span>, <span class="fl">0.30</span>, <span class="fl">0.30</span>, <span class="fl">0.20</span>)))  </span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Rarely"</span>, <span class="st">"Sometimes"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.25</span>, <span class="fl">0.30</span>, <span class="fl">0.20</span>, <span class="fl">0.10</span>)))  </span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to assign motivation for online community participation</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>adjust_motivation <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Learning new skills"</span>, <span class="st">"Meeting new people"</span>, <span class="st">"Support for personal issues"</span>, <span class="st">"Entertainment"</span>), <span class="dv">1</span>,</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>                <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.15</span>, <span class="fl">0.50</span>, <span class="fl">0.20</span>)))  <span class="co"># More people joining for support</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to adjust sharing comfort level</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>adjust_sharing_comfort <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Very uncomfortable"</span>, <span class="st">"Uncomfortable"</span>, <span class="st">"Neutral"</span>, <span class="st">"Comfortable"</span>, <span class="st">"Very comfortable"</span>), <span class="dv">1</span>,</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>                <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.10</span>, <span class="fl">0.20</span>, <span class="fl">0.35</span>, <span class="fl">0.30</span>)))  <span class="co"># More people feel comfortable sharing</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to adjust real name usage based on subscription</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>adjust_real_name_usage <span class="ot">&lt;-</span> <span class="cf">function</span>(paid_online_services) {</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (paid_online_services <span class="sc">==</span> <span class="st">"Yes"</span>) {</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Rarely"</span>, <span class="st">"Sometimes"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.10</span>, <span class="fl">0.25</span>, <span class="fl">0.30</span>, <span class="fl">0.30</span>)))  </span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Rarely"</span>, <span class="st">"Sometimes"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.20</span>, <span class="fl">0.30</span>, <span class="fl">0.20</span>, <span class="fl">0.15</span>)))  </span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply probability adjustments</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">loneliness_frequency =</span> <span class="fu">adjust_loneliness</span>(employment_status, relationship_status, friend_count, age),</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">motivation_online_community =</span> <span class="fu">adjust_motivation</span>(),</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    <span class="at">sharing_comfort =</span> <span class="fu">adjust_sharing_comfort</span>(),</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>    <span class="at">real_name_usage =</span> <span class="fu">adjust_real_name_usage</span>(paid_online_services)</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Proin lacinia dolor sit amet facilisis mollis. Donec ullamcorper elit non dui hendrerit efficitur.</p>
-</section>
 <section id="questionnaire" class="level1">
 <h1>Questionnaire</h1>
 <p>The table below provides a codebook for the survey questionnaire, listing variable names and the corresponding questions:</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>codebook <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Survey Questionnaire Codebook"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
 <caption>Survey Questionnaire Codebook</caption>
@@ -357,10 +407,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Data Overview</h1>
 <p>The survey dataset contains responses to questions on demographic and behavioral characteristics. Here is a preview of the first few rows:</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Survey Data Preview"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
 <caption>Survey Data Preview</caption>
@@ -388,117 +441,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Female</td>
-<td style="text-align: right;">22</td>
+<td style="text-align: right;">45</td>
 <td style="text-align: left;">15000-25000 €</td>
-<td style="text-align: left;">Unemployed</td>
-<td style="text-align: left;">Married</td>
+<td style="text-align: left;">Full-time</td>
+<td style="text-align: left;">In a relationship</td>
+<td style="text-align: left;">Always</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Often</td>
+<td style="text-align: left;">TikTok</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Support for personal issues</td>
+<td style="text-align: left;">Privacy features</td>
+<td style="text-align: left;">Always</td>
+<td style="text-align: left;">4-5</td>
+<td style="text-align: left;">Comfortable</td>
+<td style="text-align: left;">11-20</td>
+<td style="text-align: left;">6-8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: left;">45000+ €</td>
+<td style="text-align: left;">Full-time</td>
+<td style="text-align: left;">Divorced</td>
 <td style="text-align: left;">Sometimes</td>
 <td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Never</td>
-<td style="text-align: left;">TikTok</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Learning new skills</td>
-<td style="text-align: left;">Privacy features</td>
-<td style="text-align: left;">Never</td>
-<td style="text-align: left;">6 or more</td>
-<td style="text-align: left;">Neutral</td>
+<td style="text-align: left;">Rarely</td>
+<td style="text-align: left;">Instagram</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Entertainment</td>
+<td style="text-align: left;">Content quality</td>
+<td style="text-align: left;">Always</td>
+<td style="text-align: left;">1-3</td>
+<td style="text-align: left;">Very comfortable</td>
 <td style="text-align: left;">6-10</td>
 <td style="text-align: left;">8 and more</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Female</td>
-<td style="text-align: right;">38</td>
-<td style="text-align: left;">25000-35000 €</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">35000-45000 €</td>
 <td style="text-align: left;">Full-time</td>
 <td style="text-align: left;">Married</td>
 <td style="text-align: left;">Sometimes</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Rarely</td>
+<td style="text-align: left;">Facebook</td>
 <td style="text-align: left;">No</td>
-<td style="text-align: left;">Sometimes</td>
-<td style="text-align: left;">Twitter</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Entertainment</td>
-<td style="text-align: left;">Ease of use</td>
-<td style="text-align: left;">Always</td>
+<td style="text-align: left;">Support for personal issues</td>
+<td style="text-align: left;">Community guidelines</td>
+<td style="text-align: left;">Often</td>
 <td style="text-align: left;">None</td>
+<td style="text-align: left;">Neutral</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">15000-25000 €</td>
+<td style="text-align: left;">Freelancer</td>
+<td style="text-align: left;">Married</td>
+<td style="text-align: left;">Rarely</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Often</td>
+<td style="text-align: left;">Instagram</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Entertainment</td>
+<td style="text-align: left;">Community guidelines</td>
+<td style="text-align: left;">Always</td>
+<td style="text-align: left;">1-3</td>
+<td style="text-align: left;">Comfortable</td>
+<td style="text-align: left;">6-10</td>
+<td style="text-align: left;">8 and more</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: left;">15000-25000 €</td>
+<td style="text-align: left;">Part-time</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: left;">Often</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Rarely</td>
+<td style="text-align: left;">Facebook</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Entertainment</td>
+<td style="text-align: left;">Privacy features</td>
+<td style="text-align: left;">Sometimes</td>
+<td style="text-align: left;">4-5</td>
 <td style="text-align: left;">Neutral</td>
 <td style="text-align: left;">20 and more</td>
 <td style="text-align: left;">1-3</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Female</td>
-<td style="text-align: right;">39</td>
-<td style="text-align: left;">0-15000 €</td>
-<td style="text-align: left;">Part-time</td>
-<td style="text-align: left;">Married</td>
+<tr class="even">
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: left;">25000-35000 €</td>
+<td style="text-align: left;">Full-time</td>
+<td style="text-align: left;">In a relationship</td>
 <td style="text-align: left;">Sometimes</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Always</td>
-<td style="text-align: left;">Twitter</td>
-<td style="text-align: left;">No</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Never</td>
+<td style="text-align: left;">Facebook</td>
+<td style="text-align: left;">Yes</td>
 <td style="text-align: left;">Support for personal issues</td>
-<td style="text-align: left;">Ease of use</td>
-<td style="text-align: left;">Often</td>
-<td style="text-align: left;">1-3</td>
+<td style="text-align: left;">Content quality</td>
+<td style="text-align: left;">Sometimes</td>
+<td style="text-align: left;">6 or more</td>
 <td style="text-align: left;">Very comfortable</td>
 <td style="text-align: left;">20 and more</td>
 <td style="text-align: left;">None</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Male</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: left;">0-15000 €</td>
-<td style="text-align: left;">Full-time</td>
-<td style="text-align: left;">Married</td>
-<td style="text-align: left;">Always</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Sometimes</td>
-<td style="text-align: left;">Twitter</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Learning new skills</td>
-<td style="text-align: left;">Community guidelines</td>
-<td style="text-align: left;">Sometimes</td>
-<td style="text-align: left;">6 or more</td>
-<td style="text-align: left;">Uncomfortable</td>
-<td style="text-align: left;">1-5</td>
-<td style="text-align: left;">6-8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Female</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: left;">45000+ €</td>
-<td style="text-align: left;">Part-time</td>
-<td style="text-align: left;">In a relationship</td>
-<td style="text-align: left;">Rarely</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Never</td>
-<td style="text-align: left;">Instagram</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Support for personal issues</td>
-<td style="text-align: left;">Community guidelines</td>
-<td style="text-align: left;">Often</td>
-<td style="text-align: left;">4-5</td>
-<td style="text-align: left;">Comfortable</td>
-<td style="text-align: left;">6-10</td>
-<td style="text-align: left;">6-8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Male</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">45000+ €</td>
-<td style="text-align: left;">Unemployed</td>
-<td style="text-align: left;">Single</td>
-<td style="text-align: left;">Always</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Rarely</td>
-<td style="text-align: left;">Instagram</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Support for personal issues</td>
-<td style="text-align: left;">Community guidelines</td>
-<td style="text-align: left;">Sometimes</td>
-<td style="text-align: left;">1-3</td>
-<td style="text-align: left;">Comfortable</td>
-<td style="text-align: left;">6-10</td>
-<td style="text-align: left;">4-6</td>
 </tr>
 </tbody>
 </table>
@@ -512,6 +565,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="factors-to-numeric" class="level2">
 <h2 class="anchored" data-anchor-id="factors-to-numeric">Factors to Numeric</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">loneliness_frequency =</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(loneliness_frequency, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Rarely"</span>, <span class="st">"Sometimes"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)),</span>
@@ -523,14 +578,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">friend_count =</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(friend_count, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"1-3"</span>, <span class="st">"4-6"</span>, <span class="st">"6-8"</span>, <span class="st">"8 and more"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)),</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">daily_meaningful_contacts =</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(daily_meaningful_contacts, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"1-5"</span>, <span class="st">"6-10"</span>, <span class="st">"11-20"</span>, <span class="st">"20 and more"</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="age-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="age-distribution">Age Distribution</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Age distribution</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">cut</span>(age, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">18</span>, <span class="dv">95</span>, <span class="at">by =</span> <span class="dv">10</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">cut</span>(age, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">26</span>, <span class="dv">46</span>, <span class="at">by =</span> <span class="dv">10</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_loneliness =</span> <span class="fu">mean</span>(loneliness_frequency, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> age_group, <span class="at">y =</span> mean_loneliness, <span class="at">fill =</span> age_group)) <span class="sc">+</span></span>
@@ -543,6 +601,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -555,10 +614,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="employment" class="level2">
 <h2 class="anchored" data-anchor-id="employment">Employment</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> employment_status, <span class="at">y =</span> loneliness_frequency, <span class="at">fill =</span> employment_status)) <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Employment Status vs. Loneliness Frequency"</span>, <span class="at">x =</span> <span class="st">"Employment Status"</span>, <span class="at">y =</span> <span class="st">"Loneliness Frequency"</span>) <span class="sc">+</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -571,10 +633,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="relationship" class="level2">
 <h2 class="anchored" data-anchor-id="relationship">Relationship</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> relationship_status, <span class="at">y =</span> loneliness_frequency, <span class="at">fill =</span> relationship_status)) <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relationship Status vs. Loneliness Frequency"</span>, <span class="at">x =</span> <span class="st">"Relationship Status"</span>, <span class="at">y =</span> <span class="st">"Loneliness Frequency"</span>) <span class="sc">+</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -585,9 +650,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>##Groupcalls</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group_calls, <span class="at">y =</span> sharing_comfort, <span class="at">fill =</span> group_calls)) <span class="sc">+</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Group Calls vs. Sharing Comfort Online"</span>, <span class="at">x =</span> <span class="st">"Group Calls Participation"</span>, <span class="at">y =</span> <span class="st">"Sharing Comfort Level"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -600,10 +668,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="income" class="level2">
 <h2 class="anchored" data-anchor-id="income">Income</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> annual_income, <span class="at">y =</span> daily_meaningful_contacts, <span class="at">fill =</span> annual_income)) <span class="sc">+</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Annual Income vs. Daily Meaningful Contacts"</span>, <span class="at">x =</span> <span class="st">"Annual Income"</span>, <span class="at">y =</span> <span class="st">"Number of Meaningful Contacts"</span>) <span class="sc">+</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -616,6 +687,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="name" class="level2">
 <h2 class="anchored" data-anchor-id="name">Name</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(real_name_usage) <span class="sc">%&gt;%</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_sharing_comfort =</span> <span class="fu">mean</span>(sharing_comfort, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
@@ -631,6 +704,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -643,6 +717,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="friend" class="level2">
 <h2 class="anchored" data-anchor-id="friend">Friend</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(friend_count) <span class="sc">%&gt;%</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_loneliness =</span> <span class="fu">mean</span>(loneliness_frequency, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
@@ -655,6 +731,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean Loneliness Frequency"</span></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>

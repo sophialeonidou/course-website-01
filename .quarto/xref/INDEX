@@ -37,5 +37,11 @@
   },
   "survey analysis/surveyanalysis.qmd": {
     "surveyanalysis.html": "ae7e3f86"
+  },
+  "SignUp.qmd": {
+    "SignUp.html": "8f22d1ab"
+  },
+  "SentimentAnalysis.qmd": {
+    "SentimentAnalysis.html": "7ba6745b"
   }
 }
