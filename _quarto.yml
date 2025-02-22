@@ -17,6 +17,8 @@ website:
         text: Static Report
       - href: SentimentAnalysis.qmd
         text: Sentiment Analysis
+      - href: Dashboards.qmd
+        text: Dashboards
       - href: SignUp.qmd
         text: Sign Up
     

@@ -63,18 +63,11 @@
     "text": "Age Distribution\n\n\nCode\n# Age distribution\ndata %&gt;%\n  mutate(age_group = cut(age, breaks = seq(26, 46, by = 10), include.lowest = TRUE)) %&gt;%\n  group_by(age_group) %&gt;%\n  summarize(mean_loneliness = mean(loneliness_frequency, na.rm = TRUE)) %&gt;%\n  ggplot(aes(x = age_group, y = mean_loneliness, fill = age_group)) +\n  geom_bar(stat = \"identity\", alpha = 0.8) +\n  labs(\n    title = \"Mean Loneliness Frequency by Age Group\",\n    x = \"Age Group\",\n    y = \"Mean Loneliness Frequency\",\n    fill = \"Age Group\"\n  ) +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
   },
   {
-    "objectID": "survey analysis/surveyanalysis.html#employment",
-    "href": "survey analysis/surveyanalysis.html#employment",
-    "title": "Survey Analysis",
-    "section": "Employment",
-    "text": "Employment\n\n\nCode\nggplot(data, aes(x = employment_status, y = loneliness_frequency, fill = employment_status)) +\n  geom_boxplot() +\n  labs(title = \"Employment Status vs. Loneliness Frequency\", x = \"Employment Status\", y = \"Loneliness Frequency\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
-  },
-  {
     "objectID": "survey analysis/surveyanalysis.html#relationship",
     "href": "survey analysis/surveyanalysis.html#relationship",
     "title": "Survey Analysis",
     "section": "Relationship",
-    "text": "Relationship\n\n\nCode\nggplot(data, aes(x = relationship_status, y = loneliness_frequency, fill = relationship_status)) +\n  geom_boxplot() +\n  labs(title = \"Relationship Status vs. Loneliness Frequency\", x = \"Relationship Status\", y = \"Loneliness Frequency\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\n\n\n\n\n##Groupcalls\n\n\nCode\nggplot(data, aes(x = group_calls, y = sharing_comfort, fill = group_calls)) +\n  geom_boxplot() +\n  labs(title = \"Group Calls vs. Sharing Comfort Online\", x = \"Group Calls Participation\", y = \"Sharing Comfort Level\")"
+    "text": "Relationship\n\n\nCode\nggplot(data, aes(x = relationship_status, y = loneliness_frequency, fill = relationship_status)) +\n  geom_boxplot() +\n  labs(title = \"Relationship Status vs. Loneliness Frequency\", x = \"Relationship Status\", y = \"Loneliness Frequency\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
   },
   {
     "objectID": "survey analysis/surveyanalysis.html#income",
@@ -82,13 +75,6 @@
     "title": "Survey Analysis",
     "section": "Income",
     "text": "Income\n\n\nCode\nggplot(data, aes(x = annual_income, y = daily_meaningful_contacts, fill = annual_income)) +\n  geom_boxplot() +\n  labs(title = \"Annual Income vs. Daily Meaningful Contacts\", x = \"Annual Income\", y = \"Number of Meaningful Contacts\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
-  },
-  {
-    "objectID": "survey analysis/surveyanalysis.html#name",
-    "href": "survey analysis/surveyanalysis.html#name",
-    "title": "Survey Analysis",
-    "section": "Name",
-    "text": "Name\n\n\nCode\ndata %&gt;%\n  group_by(real_name_usage) %&gt;%\n  summarize(mean_sharing_comfort = mean(sharing_comfort, na.rm = TRUE)) %&gt;%\n  mutate(percentage = mean_sharing_comfort / sum(mean_sharing_comfort) * 100) %&gt;%\n  ggplot(aes(x = \"\", y = percentage, fill = as.factor(real_name_usage))) +\n  geom_bar(stat = \"identity\", width = 1) +\n  coord_polar(\"y\", start = 0) +\n  labs(\n    title = \"Average Sharing Comfort by Real Name Usage\",\n    fill = \"Real Name Usage Frequency\",\n    y = \"Percentage\",\n    x = NULL\n  ) +\n  theme_void() +\n  theme(legend.position = \"right\")"
   },
   {
     "objectID": "survey analysis/surveyanalysis.html#friend",
