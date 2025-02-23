@@ -84,6 +84,13 @@
     "text": "Friend\n\n\nCode\ndata %&gt;%\n  group_by(friend_count) %&gt;%\n  summarize(mean_loneliness = mean(loneliness_frequency, na.rm = TRUE)) %&gt;%\n  ggplot(aes(x = friend_count, y = mean_loneliness, group = 1)) +\n  geom_line(color = \"blue\", size = 1) +\n  geom_point(color = \"red\", size = 2) +\n  labs(\n    title = \"Mean Loneliness Frequency by Friend Count\",\n    x = \"Number of Friends\",\n    y = \"Mean Loneliness Frequency\"\n  ) +\n  theme_minimal()\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead."
   },
   {
+    "objectID": "Dashboards.html",
+    "href": "Dashboards.html",
+    "title": "Dashboards",
+    "section": "",
+    "text": "View Dashboard"
+  },
+  {
     "objectID": "tab-one/tab-one-index.html",
     "href": "tab-one/tab-one-index.html",
     "title": "About",
